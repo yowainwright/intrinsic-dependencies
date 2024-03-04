@@ -26,11 +26,13 @@
     "test": "node test.js",
     "test:cli:pass": "node index.js --filePath=fixtures/fixture.pass.package.json",
     "test:cli:fail": "node index.js --filePath=fixtures/fixture.fail.package.json",
-    "prepare": "pnpm build; pnpm lint; pnpm format; pnpm test; pnpm test:cli:pass"
+    "prepare": "pnpm build; pnpm lint; pnpm format; pnpm test; pnpm test:cli:pass",
+    "update": "codependence --update"
   },
   "author": "jeffry wainwright <jeffry.in> (jeffry@hey.com)",
   "license": "MIT",
   "devDependencies": {
+    "codependence": "^0.2.6",
     "esbuild": "^0.20.1",
     "eslint": "^8.57.0",
     "prettier": "^3.2.5"
