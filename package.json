@@ -1,6 +1,6 @@
 {
   "name": "intrinsic-dependencies",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "a simple utility ensuring invisible but required dependencies aren't removed",
   "main": "index.js",
   "type": "module",
