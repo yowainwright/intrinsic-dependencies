@@ -1,6 +1,5 @@
 import { readFileSync } from 'fs'
 import { dirname, resolve } from 'path';
-import { config } from 'process';
 import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
