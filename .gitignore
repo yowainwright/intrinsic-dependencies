@@ -130,3 +130,5 @@ dist
 .pnp.*
 
 index.cjs
+
+.DS_Store
