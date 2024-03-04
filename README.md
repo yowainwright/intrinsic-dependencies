@@ -10,7 +10,7 @@
 
 #### Scenario
 
-> You may be reviewing dependencies for security or performance reasons and see a dependencies which appears to be unneeded. You remove the dependency and suddenly your project is broken. This problem can be fatal—for example, if the dependency is required for something specific to production.
+You may be reviewing dependencies for security or performance reasons and see a dependency which appears to be unneeded. You remove the dependency and suddenly your project is broken. This problem can be fatal—for example, if the dependency is required for something specific to production.
 
 The solution is just a few functions. However, it can be difficult to remember to add these functions to your project. And, this issue usually doesn't come up unless you have a big work project.
 

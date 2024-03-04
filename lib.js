@@ -2,11 +2,17 @@ import { readFileSync } from 'fs'
 import { basename, dirname, resolve } from 'path';
 
 let __filename;
-if (typeof import.meta !== 'undefined' && import.meta.url) __filename = basename(new URL(import.meta.url).pathname);
-else __filename = require.main.filename;
+if (typeof import.meta !== 'undefined' && import.meta.url) {
+  __filename = basename(new URL(import.meta.url).pathname);
+} else __filename = require.main.filename;
 const __dirname = dirname(__filename);
 
-export function checkIntrinsicDependencies({ filePath = './package.json', configPath = '', root = __dirname, log = logger({ file: 'lib.js' }) } = {}) {
+export function checkIntrinsicDependencies({
+  filePath = './package.json',
+  configPath = '',
+  root = __dirname,
+  log = logger({ file: 'lib.js' })
+} = {}) {
   let resolvedDepsList = [];
   let intrinsicDepsList = [];
   let missingDeps = [];
@@ -93,6 +99,7 @@ export const logger = ({ file, name = 'intrinsic dependencies' }) => ({
     else console.info(`${prefix} ${msg}`);
   }
 });
+
 export const parseArg = (args, argName, defaultValue = '') => {
   const argPrefix = `--${argName}`;
   const arg = args.find(arg => arg.startsWith(argPrefix));
