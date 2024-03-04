@@ -1,5 +1,9 @@
 # Intrinsic Dependencies
 
+[![npm version](https://badge.fury.io/js/intrinsic-dependencies.svg)](https://badge.fury.io/js/intrinsic-dependencies)
+![ci](https://github.com/yowainwright/intrinsic-dependencies/actions/workflows/ci.yml/badge.svg)
+[![Github](https://badgen.net/badge/icon/github?icon=github&label&color=grey)](https://github.com/yowainwright/intrinsic-dependencies)
+
 #### A utility for ensuring invisible _but required_ dependencies aren\'t removed.
 
 ---
@@ -103,3 +107,7 @@ This project was intentionally made with "just node"; no Typescript.
 This keeps the project pure, small, and as close to "just node" as possible.
 
 For development, esbuild, prettier and eslint are used because no similar functionality is provided by "just node".
+
+---
+
+Made by [@yowainwright](https://github.com/yowainwright) for fun with passion! MIT, 2024.

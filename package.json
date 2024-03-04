@@ -46,5 +46,27 @@
       "ecmaVersion": "latest",
       "sourceType": "module"
     }
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/yowainwright/intrinsic-dependencies/issues"
+  },
+  "homepage": "https://github.com/yowainwright/intrinsic-dependencies#readme",
+  "files": [
+    "index.js",
+    "index.cjs",
+    "types.d.ts",
+    "lib.js"
+  ],
+  "keywords": [
+    "intrinsic",
+    "dependencies",
+    "codependence",
+    "codependent",
+    "invisible",
+    "check",
+    "checkup",
+    "check-up",
+    "ensure",
+    "verify"
+  ]
 }
