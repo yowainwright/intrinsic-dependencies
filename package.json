@@ -5,20 +5,28 @@
   "main": "index.js",
   "type": "module",
   "module": "index.js",
+  "types": "types.d.ts",
   "bin": {
     "intrinsic-dependencies-check": "index.js",
     "intrinsic-dependencies": "index.js",
     "intrinsic-deps": "index.js"
   },
+  "exports": {
+    ".": {
+      "import": "./index.js",
+      "require": "./index.cjs"
+    }
+  },
   "scripts": {
-    "build": "esbuild index.js --bundle --outfile=index.cjs",
-    "format:write": "prettier --write",
-    "format": "prettier --check",
-    "lint:fix": "eslint --fix index.js, cli.js",
-    "lint": "eslint index.js, cli.js",
+    "build": "esbuild index.js --bundle --outfile=index.cjs --platform=node",
+    "format:write": "prettier --write --no-config .",
+    "format": "prettier --no-config .",
+    "lint:fix": "eslint --fix",
+    "lint": "eslint .",
     "test": "node test.js",
     "test:cli:pass": "node index.js --filePath=fixtures/fixture.pass.package.json",
-    "test:cli:fail": "node index.js --filePath=fixtures/fixture.fail.package.json"
+    "test:cli:fail": "node index.js --filePath=fixtures/fixture.fail.package.json",
+    "prepare": "pnpm build; pnpm lint; pnpm format; pnpm test; pnpm test:cli:pass"
   },
   "author": "jeffry wainwright <jeffry.in> (jeffry@hey.com)",
   "license": "MIT",
@@ -26,5 +34,15 @@
     "esbuild": "^0.20.1",
     "eslint": "^8.57.0",
     "prettier": "^3.2.5"
+  },
+  "eslintConfig": {
+    "env": {
+      "node": true
+    },
+    "extends": "eslint:recommended",
+    "parserOptions": {
+      "ecmaVersion": "latest",
+      "sourceType": "module"
+    }
   }
 }

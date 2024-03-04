@@ -1,8 +1,9 @@
 import { readFileSync } from 'fs'
-import { dirname, resolve } from 'path';
-import { fileURLToPath } from 'url';
+import { basename, dirname, resolve } from 'path';
 
-const __filename = fileURLToPath(import.meta.url);
+let __filename;
+if (typeof import.meta !== 'undefined' && import.meta.url) __filename = basename(new URL(import.meta.url).pathname);
+else __filename = require.main.filename;
 const __dirname = dirname(__filename);
 
 export function checkIntrinsicDependencies({ filePath = './package.json', configPath = '', root = __dirname, log = logger({ file: 'lib.js' }) } = {}) {
