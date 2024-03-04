@@ -4,6 +4,8 @@
 
 Often _\*invisible_ JavaScript dependencies are required for a project to work.
 
+---
+
 #### Scenario
 
 > You may be reviewing dependencies for security or performance reasons and see a dependencies which appears to be unneeded. You remove the dependency and suddenly your project is broken. This problem can be fatal—for example, if the dependency is required for something specific to production.
@@ -12,7 +14,9 @@ The solution is simple—just a few functions. However, it can be difficult to r
 
 That's where Intrinsic Dependencies comes in. Just add the cli to your npm scripts and you're good to go. Intrinsic Dependencies fails or passes with a log of dependencies that are required. That's it.
 
-##### Solution
+---
+
+#### Solution
 
 Add your "intrinsic dependencies" in a object to your `package.json` with notes like so:
 
@@ -85,13 +89,13 @@ intrinsic-dep-check --filePath /path/to/package.json --configPath /path/to/confi
 
 ## Node
 
-This
-
----
-
-## Recipe
-
+You can use Intrinsic Dependencies as a node function as well.
 
 ---
 
 ## Details
+
+This project was intentionally made with "just node"; no Typescript.
+This keeps the project pure, small, and as close to "just node" as possible.
+
+For development, prettier and eslint are used because no similar functionality is provided by "just node".

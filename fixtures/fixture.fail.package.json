@@ -1,0 +1,16 @@
+{
+  "name": "test-package-2",
+  "version": "1.0.0",
+  "description": "A test package",
+  "main": "index.js",
+  "dependencies": {
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "jest": "^26.6.3",
+    "eslint": "^7.14.0"
+  },
+  "intrinsicDependencies": {
+    "express": "this is required for the app to run"
+  }
+}

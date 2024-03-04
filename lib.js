@@ -1,23 +1,31 @@
 import { readFileSync } from 'fs'
 import { dirname, resolve } from 'path';
+import { config } from 'process';
 import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-const log = logger({ file: 'index.js' });
 
-export function checkIntrinsicDependencies({ filePath = './package.json', configPath = '' }) {
+export function checkIntrinsicDependencies({ filePath = './package.json', configPath = '', root = __dirname, log = logger({ file: 'lib.js' }) } = {}) {
+  let resolvedDepsList = [];
+  let intrinsicDepsList = [];
   let missingDeps = [];
   try {
-    const resolvedFilePath = resolve(__dirname, filePath);
-    const resolvedConfigPath = configPath ? resolve(__dirname, configPath) : '';
+    const resolvedFilePath = resolve(root, filePath);
     const json = resolveJSON(resolvedFilePath);
     const deps = json?.dependencies || {};
     const devDeps = json?.devDependencies || {};
     const resolvedDeps = Object.assign({}, deps, devDeps);
-    const intrinsicDeps = configPath ? resolveJSON(resolvedConfigPath) : json?.intrinsicDependencies || {};
-    const resolvedDepsList = Object.keys(resolvedDeps);
-    const intrinsicDepsList = Object.keys(intrinsicDeps);
+    resolvedDepsList = Object.keys(resolvedDeps);
+    if (!configPath) {
+      const intrinsicDeps = json?.intrinsicDependencies || {};
+      intrinsicDepsList = Object.keys(intrinsicDeps);
+    } else {
+      const resolvedConfigPath = resolve(root, configPath);
+      const configjson = resolveJSON(resolvedConfigPath);
+      const intrinsicDeps = configjson || {};
+      intrinsicDepsList = Object.keys(intrinsicDeps);
+    }
     if (!intrinsicDepsList) {
       log.info("🔎 no intrinsic dependencies detected", 'checkDependencies');
       return {
@@ -32,7 +40,7 @@ export function checkIntrinsicDependencies({ filePath = './package.json', config
       missingDeps,
     }
   } catch (error) {
-    missingDeps = intrinsicDepsList.filter(dep =>!resolvedDepsList.includes(dep));
+    missingDeps = intrinsicDepsList.filter(dep => !resolvedDepsList.includes(dep));
     return {
       hasExpectedDeps: false,
       missingDeps,
@@ -40,9 +48,9 @@ export function checkIntrinsicDependencies({ filePath = './package.json', config
   }
 }
 
-export function cli(process) {
+export function cli(process, log = logger({ file: 'lib.js' })) {
   const { filePath, configPath } = processArgs(process);
-  const { hasExpectedDeps, missingDeps } = checkDependencies({ filePath, configPath });
+  const { hasExpectedDeps, missingDeps } = checkIntrinsicDependencies({ filePath, configPath });
 
   if (hasExpectedDeps) {
     log.info('✅ All intrinsic dependencies are present!');
@@ -54,14 +62,13 @@ export function cli(process) {
 
 export function processArgs(process) {
   const args = process.argv.slice(2);
-  return {
-    filePath: parseArg(args, 'filePath', './package.json'),
-    configPath: parseArg(args, 'configPath'),
-    debug: args.includes('--debug')
-  };
+  const filePath = parseArg(args, 'filePath', './package.json');
+  const configPath = parseArg(args, 'configPath');
+  const debug = args.includes('--debug');
+  return { filePath, configPath, debug };
 }
 
-export function resolveJSON(path) {
+export function resolveJSON(path, log = logger({ file: 'lib.js' })) {
   try {
     const file = readFileSync(path, "utf8");
     const json = JSON.parse(file);
@@ -86,6 +93,14 @@ export const logger = ({ file, name = 'intrinsic dependencies' }) => ({
     else console.info(`${prefix} ${msg}`);
   }
 });
-
-export const parseArg = (args, arg, defaultValue = '') =>
-  args.find(arg => arg.startsWith(`--${arg}=`))?.replace(`--${arg}=`, '') || defaultValue;
+export const parseArg = (args, argName, defaultValue = '') => {
+  const argPrefix = `--${argName}`;
+  const arg = args.find(arg => arg.startsWith(argPrefix));
+  if (!arg) return defaultValue;
+  const argParts = arg.includes('=') ? arg.split('=') : arg.split(' ');
+  if (argParts.length === 2) return argParts[1];
+  else if (argParts.length > 2) {
+    argParts.shift();
+    return argParts.join(' ');
+  }
+};

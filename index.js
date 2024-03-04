@@ -1,4 +1,4 @@
-import { cli, checkIntrinsicDependencies } from './lib';
+import { cli, checkIntrinsicDependencies } from './lib.js';
 
 export { checkIntrinsicDependencies };
 

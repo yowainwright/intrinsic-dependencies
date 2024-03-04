@@ -1,0 +1,4 @@
+{
+  "express": "this is required for the app to run",
+  "ts-node": "this is executed in prod from some reason"
+}

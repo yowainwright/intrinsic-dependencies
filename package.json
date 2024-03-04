@@ -3,16 +3,27 @@
   "version": "0.0.1",
   "description": "a simple utility ensuring invisible but required dependencies aren't removed",
   "main": "index.js",
+  "type": "module",
+  "module": "index.js",
+  "bin": {
+    "intrinsic-dependencies-check": "index.js",
+    "intrinsic-dependencies": "index.js",
+    "intrinsic-deps": "index.js"
+  },
   "scripts": {
+    "build": "esbuild index.js --bundle --outfile=index.cjs",
     "format:write": "prettier --write",
     "format": "prettier --check",
     "lint:fix": "eslint --fix index.js, cli.js",
     "lint": "eslint index.js, cli.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test.js",
+    "test:cli:pass": "node index.js --filePath=fixtures/fixture.pass.package.json",
+    "test:cli:fail": "node index.js --filePath=fixtures/fixture.fail.package.json"
   },
   "author": "jeffry wainwright <jeffry.in> (jeffry@hey.com)",
   "license": "MIT",
   "devDependencies": {
+    "esbuild": "^0.20.1",
     "eslint": "^8.57.0",
     "prettier": "^3.2.5"
   }
