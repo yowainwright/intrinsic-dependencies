@@ -1,0 +1,20 @@
+{
+  "name": "intrinsic-dependencies",
+  "version": "0.0.1",
+  "description": "a simple utility ensuring invisible but required dependencies aren't removed",
+  "main": "index.js",
+  "scripts": {
+    "format:write": "prettier --write",
+    "format": "prettier --check",
+    "lint:fix": "eslint --fix index.js, cli.js",
+    "lint": "eslint index.js, cli.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "jeffry wainwright <jeffry.in> (jeffry@hey.com)",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "jsdoc": "^4.0.2",
+    "prettier": "^3.2.5"
+  }
+}
