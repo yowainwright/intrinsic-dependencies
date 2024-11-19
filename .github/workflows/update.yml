@@ -2,7 +2,7 @@ name: update deps
 
 on:
   schedule:
-    - cron: '0 0 * * THU'
+    - cron: '0 0 * * 4'
 
 jobs:
   udpate-deps:
