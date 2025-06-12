@@ -37,6 +37,14 @@
     "eslint": "^8.57.0",
     "prettier": "^3.3.3"
   },
+  "codependence" {
+    "codependencies": [
+      "codependence",
+      "esbuild",
+      "eslint",
+      "prettier"
+    ]
+  },
   "eslintConfig": {
     "env": {
       "node": true
