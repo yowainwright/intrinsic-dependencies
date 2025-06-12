@@ -34,7 +34,7 @@
   "devDependencies": {
     "codependence": "^0.2.6",
     "esbuild": "^0.25.0",
-    "eslint": "^8.57.0",
+    "eslint": "^9.28.0",
     "prettier": "^3.3.3"
   },
   "codependence": {
@@ -44,16 +44,6 @@
       "eslint",
       "prettier"
     ]
-  },
-  "eslintConfig": {
-    "env": {
-      "node": true
-    },
-    "extends": "eslint:recommended",
-    "parserOptions": {
-      "ecmaVersion": "latest",
-      "sourceType": "module"
-    }
   },
   "bugs": {
     "url": "https://github.com/yowainwright/intrinsic-dependencies/issues"
