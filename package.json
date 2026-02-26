@@ -36,7 +36,7 @@
     "@types/node": "^24.0.1",
     "codependence": "0.3.1",
     "esbuild": "0.27.3",
-    "eslint": "10.0.0",
+    "eslint": "10.0.2",
     "globals": "^16.2.0",
     "prettier": "3.8.1"
   },
