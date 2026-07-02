@@ -34,11 +34,11 @@
   "devDependencies": {
     "@eslint/js": "^9.29.0",
     "@types/node": "^24.0.1",
-    "codependence": "0.3.1",
-    "esbuild": "0.28.0",
-    "eslint": "10.3.0",
+    "codependence": "1.0.0",
+    "esbuild": "0.28.1",
+    "eslint": "10.6.0",
     "globals": "^16.2.0",
-    "prettier": "3.8.3"
+    "prettier": "3.9.4"
   },
   "codependence": {
     "codependencies": [
