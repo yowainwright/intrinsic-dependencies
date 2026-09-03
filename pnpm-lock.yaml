@@ -15,14 +15,14 @@ importers:
         specifier: ^24.0.1
         version: 24.0.1
       codependence:
-        specifier: 1.0.8
-        version: 1.0.8
+        specifier: 1.0.15
+        version: 1.0.15
       esbuild:
         specifier: 0.28.2
         version: 0.28.2
       eslint:
-        specifier: 10.8.1
-        version: 10.8.1
+        specifier: 10.9.1
+        version: 10.9.1
       globals:
         specifier: ^16.2.0
         version: 16.2.0
@@ -275,8 +275,8 @@ packages:
     resolution: {integrity: sha512-ScQ4IuvIEF1TMlP7Zt+vjJ//9zlPb2SDcxWxM3bk8s6t6GGdJ7KO1dCcTidOPJKePW30LE/2cT7wCyPho9/Wxg==}
     engines: {node: 20 || >=22}
 
-  codependence@1.0.8:
-    resolution: {integrity: sha512-84txLfRSlyObi7MZDoJaUxjbHLdd19FblKxVtsinzOPpDLKUEvkZfiINCskE0iF2uOmsgAwKV6VLl00//XaU2w==}
+  codependence@1.0.15:
+    resolution: {integrity: sha512-VkFWAuNPResEc6vR4eMokCvCKhLF5ATVDG5SgiYQtCsDoEgHbzoCg+HplGEQzc/PvIOkqEQ1W5PAFjMkcUDsVw==}
     engines: {node: '>=20'}
     hasBin: true
 
@@ -317,8 +317,8 @@ packages:
     resolution: {integrity: sha512-tD40eHxA35h0PEIZNeIjkHoDR4YjjJp34biM0mDvplBe//mB+IHCqHDGV7pxF+7MklTvighcCPPZC7ynWyjdTA==}
     engines: {node: ^20.19.0 || ^22.13.0 || >=24}
 
-  eslint@10.8.1:
-    resolution: {integrity: sha512-wqA7W2jbsC/BnV9Iv1UZpKVFkO1AdNoSmYW8NWG4HNOBbkAMvIqDZ27pI2f07dqn583NcIC44ckjAcOXDL1QbQ==}
+  eslint@10.9.1:
+    resolution: {integrity: sha512-9VaAkDURekixUQJy0oJYl2DcN6oKMfxay7XzaGYAWQwsb6qfKf+x76R2k1L8kb1boc+FyCAaTA9GmiKaaiaF+A==}
     engines: {node: ^20.19.0 || ^22.13.0 || >=24}
     hasBin: true
     peerDependencies:
@@ -572,9 +572,9 @@ snapshots:
   '@esbuild/win32-x64@0.28.2':
     optional: true
 
-  '@eslint-community/eslint-utils@4.9.0(eslint@10.8.1)':
+  '@eslint-community/eslint-utils@4.9.0(eslint@10.9.1)':
     dependencies:
-      eslint: 10.8.1
+      eslint: 10.9.1
       eslint-visitor-keys: 3.4.3
 
   '@eslint-community/regexpp@4.12.2': {}
@@ -646,7 +646,7 @@ snapshots:
     dependencies:
       balanced-match: 4.0.3
 
-  codependence@1.0.8: {}
+  codependence@1.0.15: {}
 
   cross-spawn@7.0.6:
     dependencies:
@@ -702,9 +702,9 @@ snapshots:
 
   eslint-visitor-keys@5.0.1: {}
 
-  eslint@10.8.1:
+  eslint@10.9.1:
     dependencies:
-      '@eslint-community/eslint-utils': 4.9.0(eslint@10.8.1)
+      '@eslint-community/eslint-utils': 4.9.0(eslint@10.9.1)
       '@eslint-community/regexpp': 4.12.2
       '@eslint/config-array': 0.23.5
       '@eslint/config-helpers': 0.7.0
